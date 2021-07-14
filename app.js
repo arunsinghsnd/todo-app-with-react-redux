@@ -7,6 +7,7 @@ const Todo = require("./models/todo");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET, MOGOURI } = require("./config/keys");
+const cors = require("cors");
 
 /** ===============Mongodb Conection logic start================*/
 
@@ -31,6 +32,7 @@ mongoose.connection.on("error", error => {
 //   res.json({ message: "Hello Wolrd" });
 // });
 
+app.use(cors());
 app.use(express.json());
 
 /** ===============Middleware================*/
